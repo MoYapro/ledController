@@ -1,0 +1,10 @@
+<div class="title">LED Controller</div>
+<ul class="strip">
+  <li
+    class="led"
+    *ngFor="let led of data.leds"
+  >
+    {{ led.active }} {{led.color}}
+  </li>
+</ul>
+
