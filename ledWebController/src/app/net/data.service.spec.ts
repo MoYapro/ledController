@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { DataService } from './data.service';
-import {LedStatus} from '../model/led-status';
+import {LedStripStatus} from '../model/led-strip-status';
 
 describe('DataService', () => {
   let service: DataService;

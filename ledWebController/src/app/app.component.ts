@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from './net/data.service';
-import {LedStatus} from './model/led-status';
+import {LedStripStatus} from './model/led-strip-status';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ledWebController';
-  data: LedStatus;
+  data: LedStripStatus;
   private dataSubscriber: Subscription;
 
   constructor(public dataService: DataService) {

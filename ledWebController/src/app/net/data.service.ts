@@ -3,7 +3,7 @@ import {Observable, Observer} from 'rxjs';
 import * as socketIo from 'socket.io-client';
 import {of} from 'rxjs';
 import {Socket} from '../shared/interfaces';
-import {LedStatus} from '../model/led-status';
+import {LedStripStatus} from '../model/led-strip-status';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class DataService {
   socket: Socket;
   observer: Observer<any>;
 
-  getStatus(): Observable<LedStatus> {
+  getStatus(): Observable<LedStripStatus> {
     // this.socket = socketIo('http://localhost:8080');
     //
     // this.socket.on('data', (res) => {
