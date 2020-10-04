@@ -10,17 +10,11 @@ import {Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ledWebController';
-  data: LedStripStatus;
-  private dataSubscriber: Subscription;
 
   constructor(public dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.dataSubscriber = this.dataService.getStatus()
-      .subscribe(data => {
-        this.data = data;
-      });
   }
 
   ngOnDestroy(): void {

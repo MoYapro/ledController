@@ -1,2 +1,2 @@
 <div class="title">LED Controller</div>
-<app-strip [status]="data"></app-strip>
+<app-strip [status]="dataService.getStatus() | async "></app-strip>
