@@ -10,8 +10,17 @@ import {LedStripStatus} from '../model/led-strip-status';
 })
 export class DataService {
 
-  socket: Socket;
-  observer: Observer<any>;
+  private socket: Socket;
+  private observer: Observer<any>;
+  data = {
+    active: true,
+    size: 3,
+    leds: [
+      {active: true, color: 5},
+      {active: false, color: 5},
+      {active: true, color: 5}
+    ]
+  };
 
   getStatus(): Observable<LedStripStatus> {
     // this.socket = socketIo('http://localhost:8080');
@@ -19,17 +28,9 @@ export class DataService {
     // this.socket.on('data', (res) => {
     //   this.observer.next(res.data);
     // });
-
+    console.log('create data of', this.data);
     return of(
-      {
-        active: true,
-        size: 3,
-        leds: [
-          {active: true, color: 5},
-          {active: false, color: 5},
-          {active: true, color: 5}
-        ]
-      }
+      this.data
     );
   }
 
@@ -48,4 +49,7 @@ export class DataService {
     return Observable.throw(error || 'Socket.io server error');
   }
 
+  add($event: any): void {
+    this.data.leds.push({active: true, color: 3});
+  }
 }
