@@ -29,7 +29,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.title').textContent).toContain('LED');
   });
 
-  it('should render leds', () => {
+  it('should render stip', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
