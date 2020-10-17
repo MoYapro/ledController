@@ -12,13 +12,13 @@ export class DataService {
 
   private socket: Socket;
   private observer: Observer<any>;
-  data = {
+  data: LedStripStatus = {
     active: true,
     size: 3,
     leds: [
-      {active: true, color: 5},
-      {active: false, color: 5},
-      {active: true, color: 5}
+      {active: true, color: {name: 'red', red: 255, green: 0, blue: 0}},
+      {active: true, color: {name: 'green', red: 0, green: 255, blue: 0}},
+      {active: true, color: {name: 'blue', red: 0, green: 0, blue: 255}}
     ]
   };
 
@@ -50,6 +50,6 @@ export class DataService {
   }
 
   add($event: any): void {
-    this.data.leds.push({active: true, color: 3});
+    this.data.leds.push({active: true, color: {name: 'pink', red: 255, green: 0, blue: 255}});
   }
 }
