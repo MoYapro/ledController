@@ -1,5 +1,4 @@
 <div *ngIf="null != led"
-     style="background-color: deeppink; border: 1px solid forestgreen; display: inline-block; width: 20px; height: 20px; overflow: hidden">
-  #{{led.color | colorFormat}}
-  {{ led.active }} {{led.color}}
+     style="background-color:{{led.color | colorFormat}}; border: 1px solid forestgreen; display: inline-block; width: 20px; height: 20px; overflow: hidden">
+  {{ led.active }}
 </div>
