@@ -50,6 +50,15 @@ export class DataService {
   }
 
   add($event: any): void {
-    this.data.leds.push({active: true, color: {name: 'pink', red: 255, green: 0, blue: 255}});
+    this.data.leds.push({active: true, color: {name: 'random', red: this.random(255), green: this.random(255), blue: this.random(255)}});
+  }
+
+  /**
+   * create a random number between 0 and (including) given value
+   * @param number
+   * @private
+   */
+  private random(number: number): number {
+    return Math.round(Math.random() * number);
   }
 }
