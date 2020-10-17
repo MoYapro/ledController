@@ -1,0 +1,8 @@
+<button (click)="addLed()">Add</button>
+<div class="strip" *ngIf="status">
+    <app-led [led]="led"
+    class="led"
+    *ngFor="let led of status.leds"
+  >
+    </app-led>
+</div>
