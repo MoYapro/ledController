@@ -3,6 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { DataService } from './data.service';
 import {LedStripStatus} from '../model/led-strip-status';
 
+function count(iterator: Iterable<any>) {
+  let count = 0;
+  for(const x of iterator) {
+    count++;
+  }
+  return count;
+}
+
 describe('DataService', () => {
   let service: DataService;
 
@@ -25,7 +33,7 @@ describe('DataService', () => {
 
   it('should produce data for each led', done => {
     service.getStatus().subscribe(ledStatus => {
-      expect(ledStatus.leds.length).toEqual(ledStatus.size);
+      expect(count(ledStatus.leds)).toEqual(ledStatus.size);
       done();
     });
   });

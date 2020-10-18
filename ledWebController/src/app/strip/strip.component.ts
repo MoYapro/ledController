@@ -15,7 +15,7 @@ export class StripComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter<LedStripStatus>();
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   /**
@@ -27,7 +27,7 @@ export class StripComponent implements OnInit {
     return Math.round(Math.random() * max);
   }
 
-  addLed(): void { // You can give any function name
+  addLed() { // You can give any function name
     const random: Led = {active: true, color: {name: 'random', red: this.random(255), green: this.random(255), blue: this.random(255)}};
     const newLedStatus = [...this.status.leds, random].values();
     this.valueChange.emit({active: this.status.active, size: this.status.size + 1, leds: newLedStatus});

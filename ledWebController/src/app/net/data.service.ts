@@ -19,7 +19,7 @@ export class DataService {
       {active: true, color: {name: 'red', red: 255, green: 0, blue: 0}},
       {active: true, color: {name: 'green', red: 0, green: 255, blue: 0}},
       {active: true, color: {name: 'blue', red: 0, green: 0, blue: 255}}
-    ].values()
+    ]
   };
 
   getStatus(): Observable<LedStripStatus> {
@@ -49,8 +49,10 @@ export class DataService {
     return Observable.throw(error || 'Socket.io server error');
   }
 
-  updateLeds(newStatus: LedStripStatus): void {
+  updateLeds(newStatus: LedStripStatus) {
+    this.data.active = newStatus.active;
     this.data.leds = newStatus.leds;
+    this.data.size = newStatus.size;
   }
 
 }
