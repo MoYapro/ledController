@@ -1,7 +1,7 @@
 import {Led} from './led';
 
 export interface LedStripStatus {
-  leds: Array<Led>;
+  leds: IterableIterator<Led>;
   active: boolean;
   size: number;
 }

@@ -19,7 +19,7 @@ export class DataService {
       {active: true, color: {name: 'red', red: 255, green: 0, blue: 0}},
       {active: true, color: {name: 'green', red: 0, green: 255, blue: 0}},
       {active: true, color: {name: 'blue', red: 0, green: 0, blue: 255}}
-    ]
+    ].values()
   };
 
   getStatus(): Observable<LedStripStatus> {
@@ -49,16 +49,8 @@ export class DataService {
     return Observable.throw(error || 'Socket.io server error');
   }
 
-  add($event: any): void {
-    this.data.leds.push({active: true, color: {name: 'random', red: this.random(255), green: this.random(255), blue: this.random(255)}});
+  updateLeds(newStatus: LedStripStatus): void {
+    this.data.leds = newStatus.leds;
   }
 
-  /**
-   * create a random number between 0 and (including) given value
-   * @param number
-   * @private
-   */
-  private random(number: number): number {
-    return Math.round(Math.random() * number);
-  }
 }
